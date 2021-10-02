@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Events\OrderStatusUpdate;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+
+    OrderStatusUpdate::dispatch();
+//    event(new OrderStatusUpdate());
     return view('welcome');
 });
